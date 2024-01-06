@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/fullstackprojectLittlelemon/static/css/main.ed14b54d.css",
+    "main.js": "/fullstackprojectLittlelemon/static/js/main.3f814afe.js",
+    "static/js/787.cc0b05c6.chunk.js": "/fullstackprojectLittlelemon/static/js/787.cc0b05c6.chunk.js",
+    "static/media/Mario and Adrian A.jpg": "/fullstackprojectLittlelemon/static/media/Mario and Adrian A.7f44c6d6e341a27d14b3.jpg",
+    "static/media/greek salad.jpg": "/fullstackprojectLittlelemon/static/media/greek salad.bed423a1fab5b210e347.jpg",
+    "static/media/bruchetta.png": "/fullstackprojectLittlelemon/static/media/bruchetta.ec260fe26a159e05c0c0.png",
+    "index.html": "/fullstackprojectLittlelemon/index.html",
+    "main.ed14b54d.css.map": "/fullstackprojectLittlelemon/static/css/main.ed14b54d.css.map",
+    "main.3f814afe.js.map": "/fullstackprojectLittlelemon/static/js/main.3f814afe.js.map",
+    "787.cc0b05c6.chunk.js.map": "/fullstackprojectLittlelemon/static/js/787.cc0b05c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed14b54d.css",
+    "static/js/main.3f814afe.js"
+  ]
+}

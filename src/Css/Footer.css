@@ -1,0 +1,8 @@
+.flex-container-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-wrap: wrap
+     /* Adjust the value to set the desired gap size */
+  }
