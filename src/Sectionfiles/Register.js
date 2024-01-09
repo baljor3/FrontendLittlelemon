@@ -11,7 +11,7 @@ const Register = () => {
     const [errorPass, setErrorPass] = useState();
 
     const addUser = async(username,email,password) =>{
-        await fetch('http://localhost:8080/api/logininsert',{
+        await fetch('https://backend-littlelemon.vercel.app/api/logininsert',{
             method: 'POST',
             body: JSON.stringify({
                "username": username,
