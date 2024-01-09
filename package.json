@@ -2,7 +2,6 @@
   "name": "frontendlittlelemon",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.428.0",
     "@chakra-ui/react": "^2.7.1",
