@@ -65,22 +65,21 @@ const Menu=() => {
         }
     }
 
-    useEffect(()=>{
-        fetch('http://localhost:8080/api/getCart',{
+    useEffect( ()=>{
+         fetch('http://localhost:8080/api/getCart',{
             headers:{
                 "token":Cookies.get('jwt_authorization')
             }
         })
         .then((response)=>response.json())
         .then((wdata)=>{
-            console.log(wdata)
             if(wdata.err === undefined){
             setNumeberData(wdata)
             }
         }).catch((err)=>{
             console.log(err.message);
         });
-    },[updateEffect])
+},[updateEffect])
 
     useEffect(()=>{
         fetch('http://localhost:8080/api/getProducts',{
@@ -96,7 +95,6 @@ const Menu=() => {
         var number = num[count]
         var pro = arrayProductid[count]
        }
-
        if(productid === pro){
         count = count +1
        }
@@ -139,12 +137,12 @@ const Menu=() => {
                        {findPicture(item.productid)}
                        <p style={{"margin-top":0, "margin-bottom":0}}><span style={{"float":"left"}}>{item.name} </span>  <span style={{"float":"right"}}>{item.price}</span> </p>
                     <EllipsisTextContainer
-                        text = {item.Description}
+                        text = {item.description}
                         width = "200px"
                         height ="60px">
                     </EllipsisTextContainer>
                     {updateNumber(
-                        numberData.map((item)=>{return(item.numberofItems)}),
+                        numberData.map((item)=>{return(item.numberofitems)}),
                         numberData.map((item)=>{return(item.productid)}),
                         item.productid
                         )}

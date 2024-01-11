@@ -9,6 +9,7 @@ const Cart=()=>{
     var [data, setData] = useState([])
     const jwtToken = Cookies.get('jwt_authorization')
     const [updateEffect,setUpdateEffect] = useState(false);
+    const[subtotal, setSubtotal] = useState();
     var count = 0;
 
 
@@ -105,16 +106,13 @@ const Cart=()=>{
                     <div>
                         <ul style={{listStyle:"None"}}>
                     <li>
-                    Name: {item.name}
-                    </li>
-                    <li>
-                      Unit Price: {item.price}
+                      Unit Price: {item.total/item.numberofitems}
                     </li>
                     <li>
                     Total: {item.total}
                     </li>
                     <li>
-                      Units:  {item.numberofItems}
+                      Units:  {item.numberofitems}
                     </li>
                     <li>
                     <button onClick={()=>additem(item.productid)}>add</button> 
@@ -134,9 +132,9 @@ const Cart=()=>{
                 return(null)
         }else{
             const sum = data.map((item) => {
-                return item.total;
+                return Number(item.total)
               }).reduce((acc, currentValue) => acc + currentValue, 0);
-            const taxes = sum *.12
+            const taxes = Math.round((sum *.12+ Number.EPSILON) *100)/100
     
             const grandtotal = taxes + sum
 
