@@ -14,7 +14,7 @@ const Login = () => {
     const { logIn } = useContext(AuthContext)
 
     const login = async(user, pass) =>{
-        await fetch('https://backend-littlelemon.vercel.app/api/login',{
+        await fetch('http://localhost:8080/api/login',{
             method: 'POST',
             body: JSON.stringify({
                "username":user,
