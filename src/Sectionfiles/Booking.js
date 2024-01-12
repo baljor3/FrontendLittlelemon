@@ -18,7 +18,7 @@ const BookingForm  = () =>{
     '22:00',]);
 
    useEffect(() =>{
-        fetch('http://localhost:8080/api/getDates')
+        fetch('https://backend-littlelemon.vercel.app/api/getDates')
         .then((response)=>response.json())
         .then((data)=>{
             setData(data)
@@ -53,7 +53,7 @@ const BookingForm  = () =>{
         setAvailableTimes(temp)
         }
     const addDates = async(date,time,guest,occasion) =>{
-    await fetch('http://localhost:8080/api/saveDates',{
+    await fetch('https://backend-littlelemon.vercel.app/api/saveDates',{
         method: 'POST',
         body: JSON.stringify({
            "date": date,

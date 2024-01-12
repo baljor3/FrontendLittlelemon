@@ -41,7 +41,7 @@ const Nav = () =>{
     const { isLoggedIn, logOut } = useContext(AuthContext);
 
     useEffect(()=>{
-        fetch("http://localhost:8080/api/getCookies",{
+        fetch("https://backend-littlelemon.vercel.app/api/getCookies",{
             headers:{
                 "token": jwtToken,
                 'Content-type': 'application/json'
