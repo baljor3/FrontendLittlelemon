@@ -22,7 +22,7 @@ const Menu=() => {
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/additem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/additem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -48,7 +48,7 @@ const Menu=() => {
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/deleteitem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/deleteitem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -66,7 +66,7 @@ const Menu=() => {
     }
 
     useEffect( ()=>{
-         fetch('http://localhost:8080/api/getCart',{
+         fetch('https://backend-littlelemon.vercel.app/api/getCart',{
             headers:{
                 "token":Cookies.get('jwt_authorization')
             }
@@ -82,7 +82,7 @@ const Menu=() => {
 },[updateEffect])
 
     useEffect(()=>{
-        fetch('http://localhost:8080/api/getProducts',{
+        fetch('https://backend-littlelemon.vercel.app/api/getProducts',{
             method: "GET"
         }).then((response)=>response.json())
         .then((data)=>{

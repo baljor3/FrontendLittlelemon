@@ -23,7 +23,7 @@ const  Main = () =>{
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/additem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/additem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -48,7 +48,7 @@ const  Main = () =>{
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/deleteitem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/deleteitem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -66,7 +66,7 @@ const  Main = () =>{
     }
 
     useEffect(()=>{
-        fetch('http://localhost:8080/api/getCart',{
+        fetch('https://backend-littlelemon.vercel.app/api/getCart',{
             headers:{
                 "token":Cookies.get('jwt_authorization')
             }
@@ -83,7 +83,7 @@ const  Main = () =>{
     },[updateEffect])
 
     useEffect(()=>{
-        fetch('http://localhost:8080/api/getTopReviews')
+        fetch('https://backend-littlelemon.vercel.app/api/getTopReviews')
         .then((response)=>response.json())
         .then((data)=>{
             setreviewData(data)
@@ -187,7 +187,7 @@ const  Main = () =>{
                     text ="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="http://localhost:3000/review/1"
+                    link="https://backend-littlelemon.vercel.app/review/1"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),
@@ -204,7 +204,7 @@ const  Main = () =>{
                      with salt and olive oil."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="http://localhost:3000/review/1"
+                    link="https://backend-littlelemon.vercel.app/review/1"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),
@@ -220,7 +220,7 @@ const  Main = () =>{
                     and is as authentic as can be imagined."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="http://localhost:3000/review/1"
+                    link="https://backend-littlelemon.vercel.app/review/1"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),

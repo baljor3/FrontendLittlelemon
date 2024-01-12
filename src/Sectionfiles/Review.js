@@ -19,7 +19,7 @@ const Review = ()=>{
     var path = path[path.length -1]
 
     useEffect(()=>{
-        fetch(`http://localhost:8080/api/getProducts/${path}`,{
+        fetch(`https://backend-littlelemon.vercel.app/api/getProducts/${path}`,{
             method: "GET"
         }).then((response)=>response.json())
         .then((data)=>{
@@ -32,7 +32,7 @@ const Review = ()=>{
         // Define a function to fetch reviews
         const fetchReviews = async () => {
           try {
-            const response = await fetch('http://localhost:8080/api/getReviews', {
+            const response = await fetch('https://backend-littlelemon.vercel.app/api/getReviews', {
               method: 'POST',
               body: JSON.stringify({
                 productid: path
@@ -60,7 +60,7 @@ const Review = ()=>{
 
 
 const writeReview = async(rating,review)=>{
-    await fetch('http://localhost:8080/api/writeReview',{
+    await fetch('https://backend-littlelemon.vercel.app/api/writeReview',{
     method: "POST",
     body: JSON.stringify({
         rating: rating,

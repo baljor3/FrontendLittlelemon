@@ -18,7 +18,7 @@ const Cart=()=>{
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/additem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/additem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -44,7 +44,7 @@ const Cart=()=>{
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('http://localhost:8080/api/deleteitem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/deleteitem', {
             method: "POST",
             body: JSON.stringify({
               "productid": v
@@ -65,7 +65,7 @@ const Cart=()=>{
 
     // TODO:UseEffect is called mutiple times instead of once, hence creating mutiple re-renders.
     useEffect( () =>{
-         fetch('http://localhost:8080/api/getCart',{
+         fetch('https://backend-littlelemon.vercel.app/api/getCart',{
             headers:{
                 "token":Cookies.get('jwt_authorization')
             }
