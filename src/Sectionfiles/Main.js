@@ -2,8 +2,8 @@ import React, {useState, useReducer, useEffect} from "react"
 import {Link }from 'react-router-dom';
 import "../Css/Main.css"
 import bruchetta from  "../asset/bruchetta.png"
-import greek from "../asset/greek salad.jpg"
-import lemondessert from  "../asset/lemon dessert.jpg"
+import greek from "../asset/greek-salad.jpg"
+import lemondessert from  "../asset/lemon-dessert.jpg"
 import MarioA from "../asset/Mario and Adrian A.jpg"
 import EllipsisTextContainer from './EllipsisTextContainer';
 import Cookies from "js-cookie";
