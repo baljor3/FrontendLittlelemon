@@ -1,14 +1,26 @@
 .flex-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-wrap: wrap
-     /* Adjust the value to set the desired gap size */
-  }
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-wrap: wrap
+   /* Adjust the value to set the desired gap size */
+}
 
-.flex-item {
-    padding: 10px;
-    text-align: center;
-  }
+.flex-item-nav {
+  padding: 10px;
+  text-align: center;
+  color: green
+}
 
+.flex-item-nav:hover{
+color: purple;
+}
+
+.log{
+color:green
+}
+
+.log:hover{
+color:purple
+}

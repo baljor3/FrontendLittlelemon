@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Link }from 'react-router-dom';
-
+import'../Css/login.css'
 
 const Register = () => {
     const [username, setUserName] = useState();
@@ -9,7 +9,11 @@ const Register = () => {
     const [errorUser, setErrorUser] = useState();
     const [errorEmail, setErrorEmail] = useState();
     const [errorPass, setErrorPass] = useState();
+    const [showPassword, setShowPassword] = useState(false);
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     const addUser = async(username,email,password) =>{
         await fetch('https://backend-littlelemon.vercel.app/api/logininsert',{
             method: 'POST',
@@ -112,27 +116,44 @@ const Register = () => {
     }
 
     return(
-        <body style={{backgroundColor:"#5C7600",display:"flex" ,justifyContent:"center", alignItems: "center"}}>
-    <form style={{"display": 'grid', "max-width": 200, "gap": 20}} onSubmit={submitdata}>
-            <label>Username</label>
+        <div className="login-container">
+    <form className="login-form" onSubmit={submitdata}>
+            <label htmlFor="username">Username</label>
             <input id = "username"
+            className="label-text-login"
             onChange={(e)=> setUserName(e.target.value)}
             required></input>
             <span >  {errorUser}  </span>
 
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input id ="email"
-            onChange={(e)=> setEmail(e.target.value)}></input>
+            className="label-text-login"
+            onChange={(e)=> setEmail(e.target.value)}
+            required></input>
             <span  >  {errorEmail}  </span>
 
-            <label>Password</label>
-            <input id="password"
-            onChange={(e)=> setPassword(e.target.value)}></input>
+            <label htmlFor="password">Password</label>
+            <div className="password-input-container">
+                    <input
+                        id="password"
+                        className="label-text-login"
+                        type={showPassword ? "text" : "password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <span className="toggle-password" onClick={togglePasswordVisibility}>
+                        {showPassword ? "👁️" : "🔒"}
+                    </span>
+                </div>
             <span >  {errorPass}  </span>
-            <button type="submit">Register</button>
-            <Link to="/login"> <button>Login</button></Link>
+
+            <div>
+            <button type="submit" className="button-login"> Register </button>
+            <Link to="/login" className="Link"> <button className="button-login"> Login </button> </Link>
+            </div>
     </form>
-    </body>
+    </div>
     )
 }
 

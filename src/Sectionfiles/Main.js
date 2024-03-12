@@ -220,7 +220,7 @@ const  Main = () =>{
                     and is as authentic as can be imagined."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="https://backend-littlelemon.vercel.app/review/1"
+                    link="https://backend-littlelemon.vercel.app/review/2"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),
@@ -228,11 +228,9 @@ const  Main = () =>{
                         2)}
             </div>
         </div>
-            
-            
+
             {TestimonialsReviews()}
-            
-        
+
     </main>);
 };
 

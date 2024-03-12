@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-import greek from "../asset/greek salad.jpg"
+import greek from "../asset/greek-salad.jpg"
 import Cookies from "js-cookie";
 import bruchetta from "../asset/bruchetta.png"
-import lemonDessert from "../asset/lemon dessert.jpg"
+import lemonDessert from "../asset/lemon-dessert.jpg"
+import "../Css/Main.css"
 
 const Review = ()=>{
 
@@ -125,7 +126,7 @@ const fun = (e)=>{
 }
 
 return(
-<main>
+<main style={{backgroundColor:"#5C7600", height:"100vh"}}>
         {productList.map((item)=>{
             return(
                 <div class ="grid-container-review">
@@ -136,13 +137,13 @@ return(
             <div> {findPicture(item.productid)} </div>
             </div>)
         })}
-        
 
-    <div>
+
+    <div style={{justifyContent:"center", alignItems:"center", paddingBottom: "30px"}}>
        {reviewArray.map((item)=>{
         return(<div className="grid-cotainer-userReviews">
             <div>
-           <span align-content = "left">{item.username}</span>  <span align-content = "right">{item.rating}/5 </span>
+           <span align-content = "left">{item.username}</span>  <span style={{position: "absolute", top: 0, right: 0}}>{item.rating}/5 </span>
            </div>
            <div>
            {item.description}
@@ -151,14 +152,17 @@ return(
        })}
     </div>
 
-    <form style ={{"display":"grid"}}onSubmit={fun}>
+    <form className ="review-form" onSubmit={fun}>
+        <div style={{marginBottom:"10px"}}>
     <select name = "rating" onChange={(e)=>{setRating(e.target.value)}}>
         {ratingSelection.map((item)=>{
             return(<option value={item.name}>{item.value}</option>)
         })}
     </select>
+    </div>
     <textarea rows="4" cols = "50" onChange={(e)=>{setReview(e.target.value)}}></textarea>
-    <button>Add a Review!</button>
+    
+    <button className="reivew-button">Add a Review!</button>
     </form>
 
    

@@ -1,0 +1,85 @@
+.label{
+    color:#D6D26D;
+    text-align: center;
+}
+
+.select-dropdown {
+    width: 100%; /* Set the width as needed */
+    padding: 8px; /* Add padding */
+    border: 2px solid white; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    background-color: transparent; /* Set background color */
+    color: white; /* Set text color */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Style the options within the dropdown */
+.select-dropdown option {
+    background-color: white; /* Set background color */
+    color: black; /* Set text color */
+}
+
+
+.input-text {
+    width: 90%; /* Set the width */
+    padding: 8px; /* Add padding */
+    border: 2px solid white; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    background-color: transparent; /* Set background color */
+    color: white; /* Set text color */
+    outline: none; /* Remove outline */
+}
+
+.input-number {
+    width: 90%; /* Set the width */
+    padding: 8px; /* Add padding */
+    border: 2px solid white; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    background-color: transparent; /* Set background color */
+    color: white; /* Set text color */
+    outline: none; /* Remove outline */
+}
+
+.input-number::-webkit-inner-spin-button,
+.input-number::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-date {
+    color: white; /* Example color */
+    padding: 8px;
+    border: 2px solid white; /* Example border */
+    border-radius: 5px;
+    background-color: transparent; /* Example background color */
+    outline: none;
+}
+
+.input-date::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Invert the color of the calendar icon */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.input-date::-webkit-inner-spin-button,
+.input-date::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove the spin buttons */
+    margin: 0; /* Remove default margin */
+}
+
+.input-submit {
+    width: 100%; /* Set the width */
+    padding: 10px; /* Add padding */
+    background-color: yellow; /* Set background color */
+    color: black; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    outline: none; /* Remove outline */
+}
+
+/* Hover and focus states */
+.input-submit:hover,
+.input-submit:focus {
+    background-color: white; /* Change background color on hover and focus */
+}

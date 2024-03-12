@@ -1,17 +1,29 @@
-import {React, useEffect, useState, useCallback} from "react"
+import {React, useEffect, useState} from "react"
 import Cookies from "js-cookie";
 import bruchetta from "../asset/bruchetta.png"
-import greek from "../asset/greek salad.jpg"
-import lemondessert from  "../asset/lemon dessert.jpg"
-
+import greek from "../asset/greek-salad.jpg"
+import lemondessert from  "../asset/lemon-dessert.jpg"
+import PopupGfg from "./CartCheckout"
+import GetAPIS from "../APIS/GetAPIS";
+import ErrorScreen from "./errorScreen"
+import ThankyouWindow from "./Thankyou";
 
 const Cart=()=>{
-    var [data, setData] = useState([])
+    const [data, setData] = useState([])
     const jwtToken = Cookies.get('jwt_authorization')
     const [updateEffect,setUpdateEffect] = useState(false);
-    const[subtotal, setSubtotal] = useState();
-    var count = 0;
+    const [popUp, setPopUp] = useState(false);
+    const [thankscreen, setThankScreen] = useState(false);
+    const [errScreen, setErrScreen] = useState(false);
+    const apis = new GetAPIS
+    //TODO: after user checkouts show loading screen. once loading screen is done send a message saying order has been placed.
 
+    const changeErrorScreen = () =>{
+        setErrScreen(prev => !prev)
+    }
+    const ChangeThank = () =>{
+        setThankScreen(prev => !prev)
+    }
 
     const additem = async(v) =>{
         try {
@@ -61,23 +73,32 @@ const Cart=()=>{
         }
     }
 
-
-
-    // TODO:UseEffect is called mutiple times instead of once, hence creating mutiple re-renders.
-    useEffect( () =>{
-         fetch('https://backend-littlelemon.vercel.app/api/getCart',{
-            headers:{
-                "token":Cookies.get('jwt_authorization')
-            }
-        })
-        .then((response)=>response.json())
-        .then((wdata)=>{
-            setUpdateEffect(false)
-            setData(wdata)
-            console.log(data)
-        }).catch((err)=>{
-            console.log(err.message);
+    useEffect(()=>{
+        data.forEach(item => {
+            console.log("Item:", item);
+            // Log specific properties of the item if needed
+            console.log("Product ID:", item.productid);
+            console.log("Name:", item.name);
+            console.log("Price:", item.price);
+            // Add more properties as needed
         });
+    },[data])
+
+    const Cart = async() =>{
+        try{
+           const result = await apis.getCart(jwtToken)
+           if(result !== undefined){
+           setData(result)
+           }
+        }catch (err){
+            console.log(err)
+        }
+        }
+       
+
+   
+    useEffect( () =>{
+        Cart()
     },[updateEffect])
 
     function getImage(num) {
@@ -90,6 +111,14 @@ const Cart=()=>{
         }
     }
 
+    const updatetheEffect = ()=>{
+        setUpdateEffect(prev => !prev)
+    }
+
+    const closeOpenCheckout = ()=>{
+        setPopUp(prev => !prev)
+    }
+
     function listItems(data){
         if(data.err === 'Unauthorized'){
             return(<p>Please login to add items to cart</p>)
@@ -97,7 +126,6 @@ const Cart=()=>{
         if(data === undefined || data.length === 0 || data.length === undefined  || data === "undefined"){
             return(<p>No items in the cart</p>)
         }else{
-            console.log(data[0]["total"])
             return(data.map((item)=>{
                 return(<div style={{display:"flex", alignItems: "center",borderBottom: "1px solid black"}} key={item.productid}>
                     <div >
@@ -135,29 +163,81 @@ const Cart=()=>{
                 return Number(item.total)
               }).reduce((acc, currentValue) => acc + currentValue, 0);
             const taxes = Math.round((sum *.12+ Number.EPSILON) *100)/100
-    
+
             const grandtotal = taxes + sum
 
             return(
+            <div>
                 <div style={{display:"grid",justifyContent:"center",alignItems: "center"}}>
                     <p>subTotal: {sum}</p>
                     <p>Taxes: {taxes}</p>
-                    <p>Total: {grandtotal}</p>
+                    <p>Total: {grandtotal.toFixed(2)}</p>
+                <button onClick={closeOpenCheckout}>checkout</button>
                 </div>
+            </div>
             )
         }
     }
+    
 
     return(
-        <body style={{backgroundColor:"#5C7600",display:"flex",justifyContent: "center", alignItems: "center",}}>
+        <body style={{backgroundColor:"#5C7600", height:"100vh"
+        
+        }}>
+            <div style={{display:"flex",justifyContent: "center", alignItems: "center",}}>
             <div style={{justifyContent:"center",alignItems: "center"}}>
                 {listItems(data)}
                 {showTotal()}
-            </div>
 
+            </div>
+            </div>
+            {popUp ?
+            <div style={{display: "flex",
+            alignItems: "center",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 2,
+
+            }}>
+            <PopupGfg closeCheckout = {closeOpenCheckout} data = {data} effect ={updatetheEffect} changeThank ={ChangeThank} changeErr = {changeErrorScreen}/>
+            </div>: null}
+            {thankscreen ?
+            <div style={{display: "flex",
+            alignItems: "center",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 2,
+
+            }}>
+                <ThankyouWindow handleClose ={ChangeThank}/>
+            </div>
+            : null}
+
+        {errScreen ?
+            <div style={{display: "flex",
+            alignItems: "center",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 2,
+
+            }}>
+                <ErrorScreen handleClose ={changeErrorScreen}/>
+            </div>
+            : null}
         </body>
     )
-    
 }
 
 export default Cart;

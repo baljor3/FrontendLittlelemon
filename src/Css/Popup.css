@@ -1,0 +1,119 @@
+.popupContainer{
+    top: 40%;
+    bottom:50%;
+    display: flex;
+    position: "absolute";
+    transform: translate(220%, -70%);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    border-style: solid;
+    border-color: #CDC959;
+  }
+  .loadContainer{
+    top: 40%;
+    bottom:50%;
+    display: flex;
+    flex-direction: column;
+    position: "absolute";
+    transform: translate(220%, -70%);
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    border-style: solid;
+    border-color: #CDC959;
+  }
+  
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: loading 1s linear infinite;
+  }
+  .closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .closeButton-thank {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .popupForm {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .nameContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .creditCardContainer{
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: 1fr 1fr ; /* Single column */
+    grid-template-rows: auto auto; /* Two rows with auto height */
+  }
+  
+  .labelRow,
+  .inputRow {
+      display: flex;
+      align-items: center;
+  }
+  
+  .inputRow input {
+      width: 100%;
+  }
+  
+  .label-popup {
+    font-weight: bold;
+  }
+  
+  .input-popup {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #5C7600;
+  }
+  
+  .input-popup:focus {
+    border-color: #5C7600;
+    border: #5C7600;
+  }
+  .input-popup-submit {
+    width: auto;
+    padding: 5px 20px;
+    background-color: #5C7600;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
