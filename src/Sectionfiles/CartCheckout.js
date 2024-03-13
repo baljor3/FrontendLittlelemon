@@ -1,4 +1,3 @@
-import 'reactjs-popup/dist/index.css';
 import '../Css/Popup.css'
 import React, { useState,useEffect } from 'react';
 import Cookies from "js-cookie";
