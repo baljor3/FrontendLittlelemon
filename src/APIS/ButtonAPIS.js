@@ -7,7 +7,7 @@ class ButtonsAPIS {
             if(jwtToken ==="" || jwtToken === undefined){
                 alert("login to order items")
             }
-            await fetch('https://backend-littlelemon.vercel.app/additem', {
+            await fetch('https://backend-littlelemon.vercel.app/api/additem', {
             method: "POST",
             body: JSON.stringify({
               "productid": productid
