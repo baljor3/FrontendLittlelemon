@@ -187,7 +187,7 @@ const  Main = () =>{
                     text ="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="https://backend-littlelemon.vercel.app/review/1"
+                    link="https://frontend-littlelemon.vercel.app/review/1"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),
@@ -204,7 +204,7 @@ const  Main = () =>{
                      with salt and olive oil."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="https://backend-littlelemon.vercel.app/review/1"
+                    link="https://frontend-littlelemon.vercel.app/review/1"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),
@@ -220,7 +220,7 @@ const  Main = () =>{
                     and is as authentic as can be imagined."
                     maxHeight="60px"
                     maxWidth="200px"
-                    link="https://backend-littlelemon.vercel.app/review/2"
+                    link="https://frontend-littlelemon.vercel.app/review/2"
                     ></EllipsisTextContainer>
                     {updateNumber(
                         numberData.map((item)=>{return(item.numberofitems)}),

@@ -102,9 +102,9 @@ const Cart=()=>{
     },[updateEffect])
 
     function getImage(num) {
-        if(num ===1){
+        if(num ===3){
             return(<img  src = {greek} alt ="MarioA" width= "150px" height="100px" />)
-        } else if(num === 4){
+        } else if(num === 1){
         return(<img src = {bruchetta} width= "150px" height="100px"></img>)
          }else{
         return(<img  src = {lemondessert} width= "150px" height="100px"></img>)
