@@ -14,19 +14,29 @@ export default function PopupGfg({closeCheckout, data, effect, changeThank, chan
 
     const jwtToken = Cookies.get('jwt_authorization')
 
-    useEffect(()=>{
-        fetch("https://backend-littlelemon.vercel.app/api/getName",{
-            method:"GET",
-            headers:{
-                "token":jwtToken,
-                'Content-type':'application/json',
+    useEffect(() => {
+        const names = async() =>{
+            try{
+            const response = await fetch("https://backend-littlelemon.vercel.app/api/getName", {
+                method: "GET",
+                headers: {
+                    "token": jwtToken,
+                    'Content-type': 'application/json',
+                }})
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+    
+                const data = await response.json();
+                setName(data[0].username);
+            }catch(error){
+                console.error('Error fetching Name:', error);
             }
-        }).then((result)=> {
-            setName(result)
-        }).catch((err)=>{
-            console.log(err)
-        })
-    },[])
+        }
+        names()
+    }, []);
+
 
     const handleCreditCardChange = (e) => {
         const formattedCreditCardNumber = e.target.value
