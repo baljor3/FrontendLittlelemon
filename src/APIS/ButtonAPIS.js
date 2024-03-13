@@ -1,5 +1,3 @@
-
-
 class ButtonsAPIS {
 
     async additem (productid,jwtToken) {

@@ -87,7 +87,7 @@ export default function PopupGfg({closeCheckout, data, effect, changeThank, chan
         setLoading(true)
         try {
           await sendMessage(email);
-          effect(); // Update the cart data
+          await effect(); // Update the cart data
           setLoading(false)
           closeCheckout(); // Close the checkout popup
           changeThank(); //Show thank you screen
