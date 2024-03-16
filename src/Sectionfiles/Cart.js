@@ -16,7 +16,7 @@ const Cart=()=>{
     const [thankscreen, setThankScreen] = useState(false);
     const [errScreen, setErrScreen] = useState(false);
     const apis = new GetAPIS
-    //TODO: after user checkouts show loading screen. once loading screen is done send a message saying order has been placed.
+
 
     const changeErrorScreen = () =>{
         setErrScreen(prev => !prev)
